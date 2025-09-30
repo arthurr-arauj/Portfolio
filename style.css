@@ -181,7 +181,7 @@ a:hover {
     border-radius: 50%; /* Deixa o botão redondo */
     
     text-align: center; /* Centraliza horizontalmente */
-    line-height: 55px;  /* Centraliza verticalmente (use o mesmo valor da altura do botão) */
+    line-height: 50px;  /* Centraliza verticalmente (use o mesmo valor da altura do botão) */
     font-size: 28px;
     
     font-weight: bold;
