@@ -113,3 +113,56 @@ a:hover {
   border: 3px solid #00bcd4;
   box-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
 }
+
+/* Novo Estilo para os Cards de Conteúdo */
+.card {
+    background-color: #1e1e1e; /* Fundo do card, um pouco mais claro que o corpo da página */
+    border: 1px solid #2a2a2a; /* Borda sutil para definir melhor os limites */
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Sombra mais suave para dar profundidade */
+    transition: transform 0.3s ease, border-color 0.3s ease; /* Transição suave para o efeito hover */
+}
+
+/* Efeito interativo ao passar o mouse */
+.card:hover {
+    transform: translateY(-5px); /* Efeito de "levantar" o card */
+    border-color: #00bcd4; /* Borda ganha a cor de destaque no hover */
+}
+
+/* Estilo para a lista de tecnologias (as "pills") */
+.tech-list {
+  list-style: none;
+  padding: 0;
+  display: flex; /* Coloca os itens lado a lado */
+  flex-wrap: wrap; /* Permite que quebrem a linha em telas pequenas */
+  gap: 0.5rem; /* Espaçamento entre os itens */
+}
+
+.tech-list li {
+  background-color: #00bcd4; /* Fundo azul */
+  color: #121212; /* Texto escuro para contraste */
+  padding: 0.5rem 1rem;
+  border-radius: 20px; /* Bordas arredondadas */
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Estilo para os links parecerem botões */
+.button-link {
+    display: inline-block;
+    background-color: #00bcd4;
+    color: #121212;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.button-link:hover {
+    background-color: #03fcec;
+    color: #000;
+}
