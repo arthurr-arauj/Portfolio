@@ -166,3 +166,32 @@ a:hover {
     background-color: #03fcec;
     color: #000;
 }
+
+/* Estilo para o botão flutuante de voltar */
+.back-to-home-btn {
+    position: fixed; /* Posição fixa na tela */
+    top: 20px;
+    right: 20px;
+    z-index: 1000; /* Garante que ele fique sobre todos os outros elementos */
+    
+    background-color: #00bcd4; /* Cor de destaque do tema */
+    color: #121212; /* Cor escura para o ícone */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Deixa o botão redondo */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.back-to-home-btn:hover {
+    transform: scale(1.1); /* Aumenta um pouco de tamanho ao passar o mouse */
+}
