@@ -171,7 +171,7 @@ a:hover {
 .back-to-home-btn {
     position: fixed; /* Posição fixa na tela */
     top: 20px;
-    right: 20px;
+    left: 20px;
     z-index: 1000; /* Garante que ele fique sobre todos os outros elementos */
     
     background-color: #00bcd4; /* Cor de destaque do tema */
