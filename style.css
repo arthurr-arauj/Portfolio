@@ -219,8 +219,18 @@ main ul li {
 }
 
 ul li a {
-  transition: transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #00bcd4;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease, filter 0.3s, color 0.2s ease; /* Adicionei 'color' na transição */
 }
+
 ul li a:hover {
-  transform: translateX(5px);
+  transform: translateX(5px) scale(1.1);
+  filter: brightness(1.6);
+  color: #03fcec;
 }
