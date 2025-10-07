@@ -234,3 +234,20 @@ ul li a:hover {
   filter: brightness(1.6);
   color: #03fcec;
 }
+
+.button-cv {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 25px;
+  border: 2px solid #00bcd4;
+  border-radius: 25px;
+  color: #00bcd4;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button-cv:hover {
+  background-color: #00bcd4;
+  color: #121212;
+}
