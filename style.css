@@ -154,6 +154,11 @@ a:hover {
   transform: scale(1.1);
 }
 
+.tech-list:hover {
+  transform: scale(1.1);
+  transition-duration: 600ms;
+}
+
 /* Estilo para os links parecerem botões */
 .button-link {
     display: inline-block;
