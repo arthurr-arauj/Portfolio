@@ -147,6 +147,11 @@ a:hover {
   border-radius: 20px; /* Bordas arredondadas */
   font-weight: 500;
   font-size: 0.9rem;
+  transition: transform 600ms ease;
+}
+
+.tech-list li:hover {
+  transform: scale(1.1);
 }
 
 /* Estilo para os links parecerem botões */
