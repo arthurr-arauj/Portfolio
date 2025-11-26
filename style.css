@@ -140,7 +140,7 @@ a:hover {
   gap: 0.5rem; /* Espaçamento entre os itens */
 }
 
-.tech-list li {
+.card .tech-list li {
   background-color: #00bcd4; /* Fundo azul */
   color: #121212; /* Texto escuro para contraste */
   padding: 0.5rem 1rem;
@@ -148,9 +148,10 @@ a:hover {
   font-weight: 500;
   font-size: 0.9rem;
   transition: transform 600ms ease;
+  transform: scale(1);
 }
 
-.tech-list li:hover {
+.card .tech-list li:hover {
   transform: scale(1.1);
 }
 
