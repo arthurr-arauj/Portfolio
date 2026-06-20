@@ -9,9 +9,9 @@ export const personal = {
   phone: '+55 34 99228-4560',
   linkedin: 'https://www.linkedin.com/in/arthur-fl%C3%A1vio/',
   github: 'https://github.com/arthurr-arauj',
-  resume: 'imagens/Currículo.pdf',
-  photo: 'imagens/arthur.jpeg',
-  favicon: 'imagens/favicon.png',
+  resume: './imagens/Currículo.pdf',
+  photo: './imagens/arthur.jpeg',
+  favicon: './imagens/favicon.png',
 };
 
 export const heroHighlights = [
@@ -70,7 +70,7 @@ export const projects = [
       'Assistente virtual interativo com Node.js e Twilio para roteamento de respostas e menus automatizados no WhatsApp.',
     longDescription:
       'Chatbot interativo para WhatsApp desenvolvido com Node.js, Express e API da Twilio. Ao receber mensagens, o bot responde com menu numérico interativo para consulta de produtos, promoções e horários.',
-    image: 'imagens/demonstracao-chatbot.gif',
+    image: './imagens/demonstracao-chatbot.gif',
     tags: ['Node.js', 'Express.js', 'Twilio API', 'Dotenv', 'Ngrok'],
     github: 'https://github.com/arthurr-arauj/chatbot-whatsapp-node',
     demo: null,
@@ -83,7 +83,7 @@ export const projects = [
       'Landing page responsiva e performática para processo seletivo da ASCII, com foco em UI/UX e animações suaves.',
     longDescription:
       'Desenvolvido como desafio técnico Front-End para o processo seletivo da ASCII (Empresa Júnior de Computação da UFU). Interface com foco total em UI/UX, animações suaves e design responsivo.',
-    image: 'imagens/print-site.jpg',
+    image: './imagens/print-site.jpg',
     tags: ['React.js', 'Tailwind CSS', 'Vite', 'React Icons', 'Vercel'],
     github: 'https://github.com/arthurr-arauj/focusflow-landing-ascii',
     demo: 'https://focusflow-ascii.vercel.app/',
@@ -96,7 +96,7 @@ export const projects = [
       'Portal institucional responsivo para casa de acolhimento de idosos, desenvolvido como projeto de extensão na UFU.',
     longDescription:
       'Projeto de extensão da UFU para ajudar uma casa de acolhimento de idosos a divulgar seu trabalho. Desenvolvimento completo com HTML e CSS, aplicando responsividade e personalização visual.',
-    image: 'imagens/logo.png',
+    image: './imagens/logo.png',
     tags: ['HTML', 'CSS', 'Git', 'Responsividade'],
     github: 'https://github.com/centro-revitalize/Revitalize',
     demo: 'https://centro-revitalize.github.io/Revitalize/',
