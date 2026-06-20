@@ -13,16 +13,9 @@ Projeto de portfólio para apresentar trabalhos e experiências em desenvolvimen
 - `public/` — ativos públicos
 - `package.json` — dependências e scripts do projeto
 
-## Como usar
+## Acesse em:
 
-1. Instale as dependências:
-   ```bash
-   npm install
-   ```
-2. Rode o servidor de desenvolvimento:
-   ```bash
-   npm run dev
-   ```
+https://arthurr-arauj.github.io/Portfolio/
 
 ---
 
