@@ -353,6 +353,7 @@ initCurrentYear();
 initSmoothScroll();
 initMobileNav();
 initHeaderState();
+initAvatarScrollMorph();
 initBackToTop();
 initRevealAnimations();
 initSectionTracking();
@@ -465,6 +466,78 @@ function initHeaderState() {
   window.addEventListener('scroll', updateHeaderState, { passive: true });
 }
 
+function initAvatarScrollMorph() {
+  const heroPhoto = document.getElementById('hero-photo-stage');
+  const headerAvatar = document.getElementById('header-avatar');
+  if (!heroPhoto || !headerAvatar) return;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+  let heroRect = null;
+  let animationFrame = null;
+
+  const measureHero = () => {
+    const previousTransform = heroPhoto.style.transform;
+    heroPhoto.style.transform = '';
+    const rect = heroPhoto.getBoundingClientRect();
+    heroRect = {
+      left: rect.left + window.scrollX,
+      top: rect.top + window.scrollY,
+      width: rect.width,
+      height: rect.height,
+    };
+    heroPhoto.style.transform = previousTransform;
+  };
+
+  const render = () => {
+    animationFrame = null;
+
+    if (reducedMotion.matches) {
+      const isScrolled = window.scrollY > 120;
+      headerAvatar.classList.toggle('has-photo', isScrolled);
+      heroPhoto.classList.toggle('is-docked', isScrolled);
+      heroPhoto.style.transform = '';
+      return;
+    }
+
+    if (!heroRect) measureHero();
+
+    const headerRect = headerAvatar.getBoundingClientRect();
+    const start = 32;
+    const end = Math.max(420, heroRect.top - headerRect.top + 260);
+    const progress = clamp((window.scrollY - start) / (end - start), 0, 1);
+    const easedProgress = progress * progress * progress * (progress * (progress * 6 - 15) + 10);
+
+    const heroCenterX = heroRect.left + heroRect.width / 2 - window.scrollX;
+    const heroCenterY = heroRect.top + heroRect.height / 2 - window.scrollY;
+    const avatarCenterX = headerRect.left + headerRect.width / 2;
+    const avatarCenterY = headerRect.top + headerRect.height / 2;
+    const translateX = (avatarCenterX - heroCenterX) * easedProgress;
+    const translateY = (avatarCenterY - heroCenterY) * easedProgress;
+    const scale = 1 + ((headerRect.width / heroRect.width) - 1) * easedProgress;
+
+    heroPhoto.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
+    heroPhoto.classList.toggle('is-morphing', progress > 0 && progress < 1);
+    heroPhoto.classList.toggle('is-docked', progress > 0.985);
+    headerAvatar.classList.toggle('has-photo', progress > 0.86);
+  };
+
+  const requestRender = () => {
+    if (animationFrame) return;
+    animationFrame = requestAnimationFrame(render);
+  };
+
+  measureHero();
+  render();
+
+  window.addEventListener('scroll', requestRender, { passive: true });
+  window.addEventListener('resize', () => {
+    heroRect = null;
+    requestRender();
+  });
+  reducedMotion.addEventListener?.('change', requestRender);
+}
+
 function initRevealAnimations() {
   const revealElements = document.querySelectorAll('.reveal');
   if (!revealElements.length) return;
@@ -537,7 +610,7 @@ function initCardInteractions() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const interactiveCards = document.querySelectorAll(
-    '.interactive-card, .surface-card, .project-card, .skill-card, .experience-card, .contact-card, .hero-chip'
+    '.interactive-card:not(.hero-chip), .surface-card, .project-card, .skill-card, .experience-card, .contact-card'
   );
 
   interactiveCards.forEach((card) => {
@@ -565,7 +638,7 @@ function initCardInteractions() {
     });
 
     card.addEventListener('mouseenter', () => {
-      card.style.transition = 'border-color 0.3s ease, box-shadow 0.4s ease';
+      card.style.transition = 'transform 0.42s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.4s ease';
     });
 
     card.addEventListener('mouseleave', () => {
