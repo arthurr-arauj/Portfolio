@@ -138,7 +138,10 @@ document.querySelector('#app').innerHTML = `
   <header class="site-header" role="banner">
     <div class="mx-auto flex h-full max-w-container items-center justify-between px-4 md:px-6">
       <a href="#" class="flex items-center gap-3" aria-label="Início">
-        <span class="flex h-10 w-10 items-center justify-center rounded-xl border border-accent/30 bg-accent-soft text-sm font-bold text-accent">${personal.initials}</span>
+        <div id="header-avatar" class="header-avatar" aria-hidden="true">
+          <span class="header-avatar__initials">${personal.initials}</span>
+          <img src="${personal.photo}" alt="${personal.shortName}" class="header-avatar__photo" />
+        </div>
         <span class="hidden font-semibold text-white sm:inline">${personal.shortName}</span>
       </a>
 
@@ -178,7 +181,7 @@ document.querySelector('#app').innerHTML = `
           </div>
 
           <div class="reveal mx-auto lg:mx-0">
-            <div class="hero__photo-frame relative">
+            <div id="hero-photo-stage" class="hero__photo-frame relative">
               <div class="absolute -inset-4 rounded-full bg-accent/10 blur-2xl"></div>
               <img
                 src="${personal.photo}"
